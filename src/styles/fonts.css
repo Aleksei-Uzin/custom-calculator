@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'intel-one-mono_light';
+  src:
+    url('../fonts/intelonemono-light-webfont.woff2') format('woff2'),
+    url('../fonts/intelonemono-light-webfont.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'intel-one-mono_regular';
+  src:
+    url('../fonts/intelonemono-regular-webfont.woff2') format('woff2'),
+    url('../fonts/intelonemono-regular-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'intel-one-mono_bold';
+  src:
+    url('../fonts/intelonemono-bold-webfont.woff2') format('woff2'),
+    url('../fonts/intelonemono-bold-webfont.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
