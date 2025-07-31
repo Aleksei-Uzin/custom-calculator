@@ -5,4 +5,12 @@
   --font-primary-300: 'intel-one-mono_light', monospace;
   --font-primary-400: 'intel-one-mono_regular', monospace;
   --font-primary-700: 'intel-one-mono_bold', monospace;
+
+  /* Color Scheme */
+  /* Taken from: https://coolors.co/040f0f-f42c04-7c7c7c-b5dda4-fcfffc */
+  --alert: #f42c04;
+  --dark: #040f0f;
+  --gray: #7c7c7c;
+  --green: #b5dda4;
+  --white: #fcfffc;
 }
