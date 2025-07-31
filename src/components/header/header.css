@@ -1,0 +1,17 @@
+.header {
+  margin: 0;
+  padding: 20px;
+  font-size: 28px;
+  text-align: center;
+  font-family: var(--font-primary-700);
+  background-color: var(--white);
+  transition: padding 200ms ease-out;
+  color: var(--dark);
+}
+
+@media (max-width: 360px) {
+  .header {
+    padding: 12px;
+    font-size: 24px;
+  }
+}
