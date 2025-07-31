@@ -30,4 +30,10 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    alias: {
+      components: path.resolve(__dirname, 'src/components/index.js'),
+      utils: path.resolve(__dirname, 'src/utils/index.js'),
+    },
+  },
 }
