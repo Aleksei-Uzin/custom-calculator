@@ -1,23 +1,36 @@
-import js from '@eslint/js'
 import globals from 'globals'
-import { defineConfig } from 'eslint/config'
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
-import eslintConfigPrettier from 'eslint-config-prettier/flat'
+import pluginJs from '@eslint/js'
+import pluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 
-export default defineConfig([
+export default [
   {
-    files: ['./src/**/*.{js,mjs,cjs}'],
-    plugins: { js },
-    extends: ['js/recommended'],
-    env: {
-      jest: true,
+    ignores: ['node_modules/**', 'dist/**', 'coverage/**'],
+  },
+  pluginJs.configs.recommended,
+  {
+    files: ['**/*.js'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.jest,
+      },
     },
-    languageOptions: { globals: globals.browser },
     rules: {
-      'no-unused-vars': 'warn',
-      'no-undef': 'warn',
+      'no-var': 'error',
+      'prefer-const': 'error',
+      'no-console': 'warn',
+      'no-unused-vars': [
+        'warn',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          ignoreRestSiblings: true,
+        },
+      ],
     },
   },
-  eslintPluginPrettierRecommended,
-  eslintConfigPrettier,
-])
+  pluginPrettierRecommended,
+]
