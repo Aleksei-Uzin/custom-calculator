@@ -1,5 +1,4 @@
-import { bem, createElement } from 'utils'
-import { button } from '../button'
+import { createElement } from 'utils'
 import { list } from '../list'
 import { PARAMS } from './constants'
 import './numpad.css'
@@ -7,7 +6,7 @@ import './numpad.css'
 export function numpad() {
   const className = 'numpad'
   const numButtons = list({ itemParams: PARAMS, className })
-  const numpad = createElement('div', { className }, numButtons)
+  const numpad = createElement({ children: numButtons, className })
 
   return numpad
 }
