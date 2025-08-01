@@ -1,11 +1,11 @@
 export function bem(b, e, m) {
   let className = b
 
-  if (Boolean(e)) {
+  if (e) {
     className += `__${e}`
   }
 
-  if (Boolean(m)) {
+  if (m) {
     className += `_${m}`
   }
 
