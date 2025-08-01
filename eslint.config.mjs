@@ -1,8 +1,9 @@
 import globals from 'globals'
+import { defineConfig } from 'eslint/config'
 import pluginJs from '@eslint/js'
 import pluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 
-export default [
+export default defineConfig([
   {
     ignores: ['node_modules/**', 'dist/**', 'coverage/**'],
   },
@@ -33,4 +34,4 @@ export default [
     },
   },
   pluginPrettierRecommended,
-]
+])
