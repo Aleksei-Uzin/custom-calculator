@@ -2,9 +2,9 @@ import { createElement } from '../createElement'
 
 describe('createElement', () => {
   it('SHOULD create new element', () => {
-    const div = createElement('div')
-    const h1 = createElement('h1')
-    const button = createElement('button')
+    const div = createElement()
+    const h1 = createElement({ type: 'h1' })
+    const button = createElement({ type: 'button' })
 
     expect(div).toBeInstanceOf(Element)
     expect(div.tagName).toBe('DIV')
@@ -18,7 +18,7 @@ describe('createElement', () => {
 
   it('SHOULD add the class name', () => {
     const className = 'main'
-    const div = createElement('div', { className })
+    const div = createElement({ className })
 
     expect(div).toBeInstanceOf(Element)
     expect(div.tagName).toBe('DIV')
@@ -26,23 +26,21 @@ describe('createElement', () => {
   })
 
   it('SHOULD be set a new attribute', () => {
-    const dataValue = '25'
-    const id = 'main'
-    const div = createElement('div', {
-      'data-value': dataValue,
-      id,
-    })
+    const props = {
+      ['data-value']: '25',
+      id: 'main',
+    }
+    const div = createElement(props)
 
     expect(div).toBeInstanceOf(Element)
     expect(div.tagName).toBe('DIV')
-    expect(div.getAttribute('data-value')).toBe(dataValue)
-    expect(div.id).toBe(id)
+    expect(div.getAttribute('data-value')).toBe(props['data-value'])
+    expect(div.id).toBe(props.id)
   })
 
   it('SHOULD insert the STRING as a child node', () => {
     const childNode = 'test content'
-    const className = 'main'
-    const div = createElement('div', { className }, childNode)
+    const div = createElement({ children: childNode })
 
     expect(div).toBeInstanceOf(Element)
     expect(div.tagName).toBe('DIV')
@@ -50,9 +48,8 @@ describe('createElement', () => {
   })
 
   it('SHOULD insert new ELEMENT as a child node', () => {
-    const id = 'main'
-    const childElement = createElement('button', { id })
-    const element = createElement('div', {}, childElement)
+    const childElement = createElement({ type: 'button', id: 'main' })
+    const element = createElement({ children: childElement })
 
     expect(element).toBeInstanceOf(Element)
     expect(element.tagName).toBe('DIV')

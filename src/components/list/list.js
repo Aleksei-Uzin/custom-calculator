@@ -11,28 +11,28 @@ export function list({
   const listItems = itemParams.map(({ content, value }) => {
     const dataValue = value ? { 'data-value': value } : null
     const params = Object.assign({}, dataValue, rest)
-    let child = null
+    let element = null
 
     if (itemType === 'button') {
-      child = button(content, params)
+      element = button(content, params)
     } else {
-      child = createElement(itemType, params, content)
+      element = createElement({ type: itemType, children: content, ...params })
     }
 
-    const listItem = createElement(
-      'li',
-      { className: bem(className, 'item') },
-      child,
-    )
+    const listItem = createElement({
+      type: 'li',
+      children: element,
+      className: bem(className, 'item'),
+    })
 
     return listItem
   })
 
-  const list = createElement(
-    'ul',
-    { className: bem(className, 'list') },
-    ...listItems,
-  )
+  const list = createElement({
+    type: 'ul',
+    children: listItems,
+    className: bem(className, 'list'),
+  })
 
   return list
 }

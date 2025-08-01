@@ -6,8 +6,8 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "format": "prettier --write ./src",
-    "lint": "eslint ./src --ext .js",
-    "lint:fix": "eslint ./src --ext .js --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "prepare": "husky",
     "start": "webpack serve --open --config webpack.dev.js",
     "test": "jest --coverage"
