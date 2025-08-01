@@ -1,15 +1,12 @@
-import { createElement } from './utils'
+import { calculator, header } from 'components'
 import './styles/reset.css'
 import './styles/variables.css'
 
-function component() {
-  const element = createElement(
-    'h1',
-    { className: 'main' },
-    'Custom Calculator',
-  )
+function app() {
+  const fragment = new DocumentFragment()
+  fragment.append(header(), calculator())
 
-  return element
+  return fragment
 }
 
-document.body.appendChild(component())
+document.body.appendChild(app())
