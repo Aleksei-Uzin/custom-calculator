@@ -1,5 +1,5 @@
-export function createElement(elementType, props = {}, ...children) {
-  const element = document.createElement(elementType)
+export function createElement({ type = 'div', children, ...props } = {}) {
+  const element = document.createElement(type)
 
   for (const [prop, value] of Object.entries(props)) {
     if (prop === 'className') {
@@ -9,12 +9,16 @@ export function createElement(elementType, props = {}, ...children) {
     }
   }
 
-  for (let childElement of children) {
-    if (typeof childElement === 'string') {
-      childElement = document.createTextNode(childElement)
-    }
+  if (children) {
+    children = Array.isArray(children) ? children : [children]
 
-    element.appendChild(childElement)
+    for (let childElement of children) {
+      if (typeof childElement === 'string') {
+        childElement = document.createTextNode(childElement)
+      }
+
+      element.appendChild(childElement)
+    }
   }
 
   return element
