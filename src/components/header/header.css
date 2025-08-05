@@ -1,17 +1,23 @@
-.header {
-  margin: 0;
+.header-box {
   padding: 20px;
+  background-color: var(--white);
+  transition: padding 200ms ease-out;
+}
+
+.header-box__header {
+  margin: 0;
   font-size: 28px;
   text-align: center;
   font-family: var(--font-primary-700);
-  background-color: var(--white);
-  transition: padding 200ms ease-out;
   color: var(--dark);
 }
 
 @media (max-width: 360px) {
-  .header {
+  .header-box {
     padding: 12px;
+  }
+
+  .header-box__header {
     font-size: 24px;
   }
 }
