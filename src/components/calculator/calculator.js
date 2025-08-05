@@ -1,12 +1,13 @@
 import { createElement } from 'utils'
-import { numpad } from '../numpad'
+import { display } from '../display'
+import { keyboard } from '../keyboard'
 import './calculator.css'
 
 export function calculator() {
   const calculator = createElement({
-    type: 'main',
-    children: numpad(),
-    className: 'calculator-box',
+    type: 'div',
+    children: [display(), keyboard()],
+    className: 'calculator',
   })
 
   return calculator

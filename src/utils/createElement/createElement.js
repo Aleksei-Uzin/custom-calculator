@@ -2,8 +2,10 @@ export function createElement({ type = 'div', children, ...props } = {}) {
   const element = document.createElement(type)
 
   for (const [prop, value] of Object.entries(props)) {
-    if (prop === 'className') {
+    if (prop === 'className' && typeof value === 'string') {
       element.classList.add(value)
+    } else if (prop === 'className' && Array.isArray(value)) {
+      element.classList.add(...value)
     } else {
       element.setAttribute(prop, value)
     }

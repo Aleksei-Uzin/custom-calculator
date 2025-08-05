@@ -1,28 +1,35 @@
 import { bem, createElement } from 'utils'
-import { button } from '../button'
+import { createButton } from '../button'
 import './list.css'
 
 export function list({
+  contentClassName = '',
   itemParams = [],
   itemType = 'button',
-  className = '',
-  ...rest
+  listClassName = '',
 } = {}) {
-  const listItems = itemParams.map(({ content, value }) => {
-    const dataValue = value ? { 'data-value': value } : null
-    const params = Object.assign({}, dataValue, rest)
+  const listItems = itemParams.map(({ className = [], content, value, ...rest }) => {
+    const params = {
+      className: [contentClassName, ...className],
+      'data-value': value,
+      ...rest,
+    }
     let element = null
 
     if (itemType === 'button') {
-      element = button(content, params)
+      element = createButton({ content, ...params })
     } else {
-      element = createElement({ type: itemType, children: content, ...params })
+      element = createElement({
+        type: itemType,
+        children: content,
+        ...params,
+      })
     }
 
     const listItem = createElement({
       type: 'li',
       children: element,
-      className: bem(className, 'item'),
+      className: bem(listClassName, 'item'),
     })
 
     return listItem
@@ -31,7 +38,7 @@ export function list({
   const list = createElement({
     type: 'ul',
     children: listItems,
-    className: bem(className, 'list'),
+    className: listClassName,
   })
 
   return list
