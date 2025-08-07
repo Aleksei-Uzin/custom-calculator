@@ -1,15 +1,32 @@
 import { createElement } from 'utils'
 import './display.css'
 
-export function display() {
-  const input = createElement({
+export const initValue = '0'
+
+const createDisplay = () => {
+  const element = createElement({
     type: 'input',
     className: 'display',
-    id: 'display',
-    dir: 'rtl',
     disabled: true,
-    value: 0,
+    value: initValue,
   })
 
-  return input
+  element.addEventListener('input', event => {
+    // console.log('Display value updated:', e.target.value)
+  })
+
+  const getDisplayValue = () => element.value
+
+  const setDisplayValue = newValue => {
+    element.value = newValue
+    element.dispatchEvent(new Event('input', { bubbles: true }))
+  }
+
+  return { element, getDisplayValue, setDisplayValue }
+}
+
+const displayInstance = createDisplay()
+
+export function display() {
+  return displayInstance
 }
