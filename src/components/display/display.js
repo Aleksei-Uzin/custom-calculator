@@ -11,18 +11,9 @@ const createDisplay = () => {
     value: initValue,
   })
 
-  element.addEventListener('input', event => {
-    // console.log('Display value updated:', e.target.value)
-  })
+  const setDisplayValue = newValue => (element.value = newValue)
 
-  const getDisplayValue = () => element.value
-
-  const setDisplayValue = newValue => {
-    element.value = newValue
-    element.dispatchEvent(new Event('input', { bubbles: true }))
-  }
-
-  return { element, getDisplayValue, setDisplayValue }
+  return { element, setDisplayValue }
 }
 
 const displayInstance = createDisplay()
