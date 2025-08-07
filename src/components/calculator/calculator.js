@@ -4,9 +4,10 @@ import { keyboard } from '../keyboard'
 import './calculator.css'
 
 export function calculator() {
+  const { element: displayElement } = display()
   const calculator = createElement({
     type: 'div',
-    children: [display(), keyboard()],
+    children: [displayElement, keyboard()],
     className: 'calculator',
   })
 

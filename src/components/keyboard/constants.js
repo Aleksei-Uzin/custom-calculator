@@ -24,7 +24,7 @@ export const PRIMARY_MATH_BUTTONS = [
   },
   {
     content: '%',
-    value: 'mod',
+    value: 'percent',
   },
   {
     content: '/',
@@ -36,7 +36,7 @@ export const PRIMARY_MATH_BUTTONS = [
   },
   {
     content: '-',
-    value: 'subtruct',
+    value: 'subtract',
   },
   {
     content: '+',
@@ -52,32 +52,34 @@ export const EXTRA_MATH_BUTTONS = [
   {
     content: '2',
     type: 'exponent',
-    value: 'pow-2',
+    value: 'exponent-2',
   },
   {
     content: '3',
     type: 'exponent',
-    value: 'pow-3',
+    value: 'exponent-3',
   },
   {
     content: 'y',
+    disabled: true,
     type: 'exponent',
-    value: 'pow-y',
+    value: 'exponent-y',
   },
   {
     content: '2',
     type: 'root',
-    value: '',
+    value: 'root-2',
   },
   {
     content: '3',
     type: 'root',
-    value: '',
+    value: 'root-3',
   },
   {
     content: 'y',
+    disabled: true,
     type: 'root',
-    value: '',
+    value: 'root-y',
   },
   {
     content: 'AC',
@@ -85,11 +87,11 @@ export const EXTRA_MATH_BUTTONS = [
   },
   {
     content: '1/x',
-    value: '',
+    value: 'oneDivideBy',
   },
   {
     content: 'x!',
-    value: 'expo',
+    value: 'factorial',
   },
 ]
 
@@ -141,6 +143,5 @@ export const NUMERIC_BUTTONS = [
   {
     content: '.',
     value: 'period',
-    className: ['button', 'color'],
   },
 ]

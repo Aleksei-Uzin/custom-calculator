@@ -36,6 +36,10 @@ npm run build
 
 - The entry point to the application is the `app.js` file.
 
+- `сomponents` folder contains the components from which the application is built.
+
+- `features` folder contains the main logic of the application.
+
 - `fonts` folder contains a document with the `Intel One Mono` font.
 
 - `styles` folder contains the application's styles.

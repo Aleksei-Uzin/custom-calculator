@@ -1,15 +1,23 @@
 import { createElement } from 'utils'
 import './display.css'
 
-export function display() {
-  const input = createElement({
+export const initValue = '0'
+
+const createDisplay = () => {
+  const element = createElement({
     type: 'input',
     className: 'display',
-    id: 'display',
-    dir: 'rtl',
     disabled: true,
-    value: 0,
+    value: initValue,
   })
 
-  return input
+  const setDisplayValue = newValue => (element.value = newValue)
+
+  return { element, setDisplayValue }
+}
+
+const displayInstance = createDisplay()
+
+export function display() {
+  return displayInstance
 }

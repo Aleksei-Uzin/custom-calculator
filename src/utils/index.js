@@ -1,2 +1,5 @@
 export * from './bem'
 export * from './createElement'
+export * from './getOperationSymbol'
+export * from './handleLocalStorage'
+export * from './messages'
